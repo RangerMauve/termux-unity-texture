@@ -1,0 +1,34 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="moe.mauve.ranger.termuxunitytexture">
+    <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="24"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+    <uses-feature android:name="android.software.vr.mode" android:required="true"/>
+    <uses-feature android:name="android.hardware.vr.high_performance" android:required="false"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application android:icon="@drawable/app_icon" android:label="@string/app_name">
+        <activity
+            android:name=".TerminalActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:enableVrMode="@string/gvr_vr_mode_component"
+            android:theme="@style/VrActivityTheme"
+            android:resizeableActivity="false"
+            android:configChanges="density|keyboardHidden|navigation|orientation|screenSize|uiMode"
+        >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <!-- This marks the Activity as a Daydream Activity and allows it
+                     to be launched from the Daydream Home. -->
+                <category android:name="com.google.intent.category.DAYDREAM" />
+
+                <!-- This allows this Activity to be launched from the traditional
+                     Android 2D launcher as well. Remove it if you do not want
+                     this Activity to be launched directly from the 2D launcher. -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
